@@ -15,4 +15,24 @@ public:
         }
         return root;
     }
+    
+    // iterative approach
+    // time:- O(n) space:- O(n)
+    TreeNode* convertBST(TreeNode* root) {
+        if(root == NULL)
+            return NULL;
+        stack<TreeNode> s;
+        TreeNode* node = root;
+        while(!s.empty() || node != NULL){
+            while(node != NULL){
+                s.push(node);
+                node = node -> right;
+            }
+            node = s.pop();
+            sum += node -> val;
+            node -> val = sum;
+            node = node -> left;
+        }
+        return root;
+    }
 };
