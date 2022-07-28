@@ -1,4 +1,5 @@
 //mine simple approach 
+// time complexity:- 0(log n)
 class Solution {
 public:
     int trailingZeroes(int n) {
