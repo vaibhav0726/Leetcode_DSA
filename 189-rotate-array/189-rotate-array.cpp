@@ -11,10 +11,11 @@ private:
     }
 public:
     void rotate(vector<int>& nums, int k) {
+        int n = nums.size();
         k = k%nums.size();
-        reverse(nums, 0, nums.size()/2, nums.size()-1);
+        reverse(nums, 0, n/2, n-1);
         reverse(nums, 0, k/2, k-1);
-        reverse(nums, k, (nums.size()+k)/2, nums.size()-1);
+        reverse(nums, k, (n+k)/2, n-1);
         // reverse(nums,0, nums.size());
     }
 };
