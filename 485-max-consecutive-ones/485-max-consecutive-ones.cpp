@@ -7,13 +7,14 @@ public:
         for(int i=0; i<n; i++){
             if(nums[i] == 1){
                 count++;
+                if(count>m){
+                    m = count;
+                }
             }
             else{
-                m = max(m, count);
                 count=0;
             }
         }
-        m= max(m, count);
         return m;
     }
 };
