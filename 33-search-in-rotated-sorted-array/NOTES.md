@@ -1,0 +1,1 @@
+Finding pivot to check from where element after max element exists.
