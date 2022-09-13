@@ -1,0 +1,1 @@
+same approaches as Majority Element I but in last approach we only have to find the two elements because let say 100 elements then 100/3 == 33 and element should be greater than 33 which shows that only maximum two element can be there with >n/3.
