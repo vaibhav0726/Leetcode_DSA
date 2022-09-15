@@ -4,6 +4,7 @@
 
 
 // solution:- 
+
 // 3 cases covers all possible combination:
 // 1. i == j == k
 // 2. i == j != k
