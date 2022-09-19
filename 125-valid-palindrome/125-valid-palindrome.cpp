@@ -1,3 +1,28 @@
+class Solution {
+public:
+    bool isPalindrome(string s) {
+        int i = 0, j = s.length() - 1;
+        transform(s.begin(), s.end(), s.begin(), ::tolower);
+        while(i<j){
+            if(s[i] == s[j]){
+                i++;
+                j--;
+            }
+            else if(isalnum(s[i]) == 0){
+                i++;
+            }
+            else if(isalnum(s[j]) == 0){
+                j--;
+            }
+            else{
+                return 0;
+            }
+        }
+        return 1;
+    }
+};
+
+// Efficient
 #include<bits/stdc++.h>
 class Solution {
 public:
