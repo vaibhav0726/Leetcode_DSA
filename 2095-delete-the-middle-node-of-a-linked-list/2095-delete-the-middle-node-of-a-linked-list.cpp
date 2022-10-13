@@ -21,16 +21,30 @@ private:
     }
 public:
     ListNode* deleteMiddle(ListNode* head) {
-        int len = findLen(head);
-        if(len <= 1){
-            return NULL;
+        // naive approach
+        // int len = findLen(head);
+        // if(len <= 1){
+        //     return NULL;
+        // }
+        // len = len / 2 -1;
+        // ListNode* temp = head;
+        // while(len--){
+        //     temp = temp -> next;
+        // }
+        // temp -> next = temp -> next -> next;
+        // return head;
+        
+        
+        
+        ListNode* slow = NULL;
+        ListNode* fast = head;
+        while(fast != NULL && fast-> next != NULL){
+            if(slow == NULL) slow = head;
+            else slow = slow->next;
+            fast = fast -> next -> next;
         }
-        len = len / 2 -1;
-        ListNode* temp = head;
-        while(len--){
-            temp = temp -> next;
-        }
-        temp -> next = temp -> next -> next;
+        if(slow == NULL) return NULL;
+        slow->next = slow->next -> next;
         return head;
     }
 };
