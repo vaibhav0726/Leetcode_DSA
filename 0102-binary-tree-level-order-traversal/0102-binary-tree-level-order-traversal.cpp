@@ -29,6 +29,7 @@ private:
     }
 public:
     vector<vector<int>> levelOrder(TreeNode* root) {
+//         recursion
         vector<vector<int>> ans;
         TreeNode* temp = root;
         int height = giveHeight(temp); 
@@ -39,5 +40,10 @@ public:
             ans.push_back(v);
         }
         return ans;
+        
+        
+//         using queue
+        // queue<int> q;
+        
     }
 };
