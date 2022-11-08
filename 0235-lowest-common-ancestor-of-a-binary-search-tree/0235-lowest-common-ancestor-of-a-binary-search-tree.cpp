@@ -22,20 +22,13 @@ private:
     }
 public:
     TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+//         naive approach
         vector<int> p1;
         vector<int> p2;
         TreeNode* temp = root;
         getPath(temp, p, p1);
         temp = root;
         getPath(temp, q, p2);
-        // for(int i=0; i<p1.size(); i++){
-        //     cout<<p1[i]<<" ";
-        // }
-        // cout<<"yes"<<endl;
-        // for(int i=0; i<p2.size(); i++){
-        //     cout<<p2[i]<<" ";
-        // }
-        // cout<<"no"<<endl;
         TreeNode* ans = NULL;
         for(int i=0; i<p1.size() && i<p2.size(); i++){
             if(p1[i] == p2[i]) {
@@ -43,5 +36,9 @@ public:
             }
         }
         return ans;
+        
+        
+//         Efficient approach
+        
     }  
 };
