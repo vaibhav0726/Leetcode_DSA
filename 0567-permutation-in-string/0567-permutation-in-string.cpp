@@ -17,3 +17,5 @@ public:
         return false;
     }
 };
+
+// https://leetcode.com/problems/permutation-in-string/discuss/638531/Java-or-C%2B%2B-or-Python3-or-Detailed-explanation-or-O(N)-time
