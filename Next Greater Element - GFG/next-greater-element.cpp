@@ -20,10 +20,9 @@ class Solution
             }
             st.push(i);
         }
-        for(int i=0; i<n; i++){
-            if(ans[i] == 0){
-                ans[i] = -1;
-            }
+        while(!st.empty()){
+            ans[st.top()] = -1;
+            st.pop();
         }
         return ans;
     }
