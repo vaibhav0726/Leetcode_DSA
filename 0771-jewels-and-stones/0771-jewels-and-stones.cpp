@@ -17,10 +17,19 @@ public:
         //     if (setJ.count(s)) res++;
         // return res;
         
-        int num = 0;
-        for (int i = 0; i < jewels.size(); i++){
-            num += count(stones.begin(), stones.end(), jewels[i]);
+        map<int,int> mp;
+        for(auto x: stones){
+            mp[x]++;
         }
-        return num;
+        int count=0;
+        for(int i=0; i<jewels.size(); i++){
+            int val =jewels[i];
+            auto key = mp.find(val);
+            if(key!=mp.end()){
+                count += key->second;
+                key->second = 0;
+            }
+        }
+        return count;
     }
 };
