@@ -116,13 +116,13 @@ class Solution{
                 node2 = node2 -> next;
             }
         }
-        while(node1 != NULL){
+        if(node1 != NULL){
             tempHead -> next = node1;
-            node1 = node1->next;
+            // node1 = node1->next;
         }
-        while(node2 != NULL){
+        if(node2 != NULL){
             tempHead -> next = node1;
-            node2 = node2->next;
+            // node2 = node2->next;
         }
         return head->next;
     }
