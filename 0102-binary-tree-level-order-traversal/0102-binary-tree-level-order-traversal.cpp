@@ -30,20 +30,36 @@ private:
 public:
     vector<vector<int>> levelOrder(TreeNode* root) {
 //         recursion
+        // vector<vector<int>> ans;
+        // TreeNode* temp = root;
+        // int height = giveHeight(temp); 
+        // temp = root;
+        // for(int i=1; i<=height; i++){
+        //     vector<int> v;
+        //     solve(v, i, temp);
+        //     ans.push_back(v);
+        // }
+        // return ans; 
+        
+//         using queue
+        queue<TreeNode*> q;
+        if(root != NULL)
+            q.push(root);
         vector<vector<int>> ans;
-        TreeNode* temp = root;
-        int height = giveHeight(temp); 
-        temp = root;
-        for(int i=1; i<=height; i++){
+        while(!q.empty()){
             vector<int> v;
-            solve(v, i, temp);
+            int size = q.size();
+            while(size--){
+                TreeNode *toPrint = q.front();
+                q.pop();
+                v.push_back(toPrint -> val);
+                if(toPrint -> left != NULL )
+                    q.push(toPrint -> left);
+                if(toPrint -> right != NULL )
+                    q.push(toPrint -> right);
+            }
             ans.push_back(v);
         }
         return ans;
-        
-        
-//         using queue
-        // queue<int> q;
-        
     }
 };
