@@ -10,24 +10,17 @@
  * };
  */
 class Solution {
-private:
-    bool solve(TreeNode* root, TreeNode* root2){
-        if(root == NULL && root2== NULL){
-            return true;
-        }
-        if(root == NULL || root2== NULL){
-            return false;
-        }
-        if(root -> val != root2 -> val){
-            return false;
-        }
-        bool ans1 = solve(root -> left, root2 -> right);
-        bool ans2 = solve(root -> right, root2 -> left);
-        return ans1  && ans2;
-    }
 public:
+    bool isSymmetricNew(TreeNode* root, TreeNode* root2){
+        if(root == NULL && root2 == NULL) return true;
+        if(root == NULL && root2 != NULL || root != NULL && root2 == NULL) return false;
+        if(root -> val != root2 -> val) return false;
+        bool left = isSymmetricNew(root -> left, root2 -> right);
+        bool right = isSymmetricNew(root -> right, root2 -> left);
+        return left && right;
+        
+    }
     bool isSymmetric(TreeNode* root) {
-        TreeNode *root2 = root;
-        return solve(root, root2);
+        return isSymmetricNew(root, root);
     }
 };
