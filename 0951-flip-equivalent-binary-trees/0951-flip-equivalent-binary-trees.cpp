@@ -11,18 +11,12 @@
  */
 class Solution {
 public:
-    bool flipEquiv(TreeNode* root, TreeNode* root2) {
-        if(root == NULL && root2== NULL){
-            return true;
-        }
-        if(root == NULL || root2== NULL){
-            return false;
-        }
-        if(root -> val != root2 -> val){
-            return false;
-        }
-        bool ans1 = flipEquiv(root -> left, root2 -> right) && flipEquiv(root -> right, root2 -> left);
-        bool ans2 = flipEquiv(root -> right, root2 -> right) && flipEquiv(root -> left, root2 -> left);
-        return ans1 || ans2;
+    bool flipEquiv(TreeNode* root1, TreeNode* root2) {
+        if(root1 == NULL && root2 == NULL) return true;
+        if(root1 == NULL && root2 != NULL || root1 != NULL && root2 == NULL) return false;
+        if(root1 -> val != root2 -> val) return false;
+        bool flip = flipEquiv(root1 -> left, root2-> right) && flipEquiv(root1 -> right, root2 -> left);
+        bool noflip = flipEquiv(root1 -> left, root2-> left) && flipEquiv(root1 -> right, root2 -> right);
+        return flip || noflip;
     }
 };
