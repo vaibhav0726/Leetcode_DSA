@@ -1,7 +1,6 @@
 class Solution {
     bool dfs(vector<vector<int>>& graph, int src, vector<bool> &vis, vector<bool> &recursionStack, vector<bool> &check ){
         vis[src] = true;
-        check[src] = false;
         recursionStack[src] = true;
         for(int &i: graph[src]){
             if(!vis[i]){
